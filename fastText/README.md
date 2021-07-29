@@ -9,16 +9,16 @@ Sample code to load fastText models from Gensim.
 from gensim.models import FastText
 
 # We have eight models available for FastText (Kindly refer to the paper)
-# (B) -> processed
-# (BN) -> processed_normalized
-# (BT) -> processed_tokenized
-# (BS) -> processed_stemmed
-# (BNT) -> processed_normalized_tokenized
-# (BNS) -> processed_normalized_stemmed
-# (BTS) -> processed_tokenized_stemmed
-# (BNTS) -> processed_normalized_tokenized_stemmed
+# (B) -> processed.fast_text
+# (BN) -> processed_normalized.fast_text
+# (BT) -> processed_tokenized.fast_text
+# (BS) -> processed_stemmed.fast_text
+# (BNT) -> processed_normalized_tokenized.fast_text
+# (BNS) -> processed_normalized_stemmed.fast_text
+# (BTS) -> processed_tokenized_stemmed.fast_text
+# (BNTS) -> processed_normalized_tokenized_stemmed.fast_text
 
-model = "processed"
+model = "processed.fast_text"
 wv = FastText.load(model)
 
 # continue with the word vector...
