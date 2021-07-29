@@ -9,16 +9,16 @@ Sample code to load Word2Vec models from Gensim.
 from gensim.models import Word2Vec
 
 # We have eight models available for Word2Vec (Kindly refer to the paper)
-# (B) -> processed
-# (BN) -> processed_normalized
-# (BT) -> processed_tokenized
-# (BS) -> processed_stemmed
-# (BNT) -> processed_normalized_tokenized
-# (BNS) -> processed_normalized_stemmed
-# (BTS) -> processed_tokenized_stemmed
-# (BNTS) -> processed_normalized_tokenized_stemmed
+# (B) -> processed.word2vec
+# (BN) -> processed_normalized.word2vec
+# (BT) -> processed_tokenized.word2vec
+# (BS) -> processed_stemmed.word2vec
+# (BNT) -> processed_normalized_tokenized.word2vec
+# (BNS) -> processed_normalized_stemmed.word2vec
+# (BTS) -> processed_tokenized_stemmed.word2vec
+# (BNTS) -> processed_normalized_tokenized_stemmed.word2vec
 
-model = "processed"
+model = "processed.word2vec"
 wv = Word2Vec.load(model)
 
 # continue with the word vector...
