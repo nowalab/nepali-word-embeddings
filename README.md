@@ -1,4 +1,5 @@
 # NPVec1: Word Embeddings for Nepali - Construction and Evaluation
+July 29, 2921
 
 ## Introduction
 We present NPVec1, which consists of 25 state-of-art Word Embeddings for Nepali that we have derived from a large corpus using GloVe, Word2Vec, fastText, and BERT. These models are trained using 279 million word tokens and are the largest Embeddings ever trained for Nepali language. 
@@ -46,9 +47,41 @@ After applying the preprocessing schemes in the specified order, we obtain the f
 |Base+Tokenized+Stemmed |(BTS) |357M |1.4M|
 |Base+Stemmed |(BS) |279M| 2.5M|
 
+## Evaluation
 
+### Intrinsic Evaluation
+We manually constructed two datasets for intrinsic evaluation which in turn consisted of at least 20 data points for each. For each of these cases (sentiment and relatedness), K-Means clustering was applied to the constituent words to generate two clusters (i.e. K=2). The obtained clusters were evaluated using the purity metric
+
+#### Relatedness Set
+In Relatedness set, two sets i.e. Kitchen Set and Nature Set were constructed. Kitchen Set consisted of words related to Kitchen like चिनि (sugar), नुन (salt), भाडो (pot) etc, whereas the Nature set consisted of words like हिमाल (mountain), पहाड (hill), खोला (river).
+
+#### Sentiment Set
+In Sentiment set, two sets i.e. Positive and Negative set were constructed. The positive sentiment set included words such as राम्रो (good), ठूलो (big), न्याय(justice), etc. whereas the negative sentiment set included their antonyms such as नराम्रो (bad), सानो (small), अन्याय (injustice) etc.
+
+### Extrinsic Evaluation
+The primary objective of extrinsic evaluation for this study was to compare how the word embeddings helped generalize the training of other supervised models with very few data labels. For this purpose, a feed-forward neural network architecture was used for a classification objective in a multi-class classification setup. We implemented a very simple text classification model using Keras. For each example (news article), we only used the first five hundred tokens and obtained their embedding vectors from the word
+embedding model under the study. These vectors were then fed to a Keras model where they were first pooled together by a one-dimensional averaging layer and then passed to a hidden layer with 64 units with the ReLU activation and then to the output layer of 10 units with Sigmoid activation. Binary crossentropy function was used to calculate
+the loss and the model was trained using the Adam Optimizer (Kingma and Ba, 2014) for 60 epochs each. In case of BERT, we averaged the hidden
+states from the last two hidden layers to get the
+embeddings, whereas, for getting the baseline results, instead of using any pre-trained word vectors, a trainable Keras embedding layer was used
+in front of the architecture mentioned above which
+automatically learns the word embeddings by only
+using the provided training examples.
+
+## Results
+
+![Results for Extrinsic and Intrinsic Analysis](https://github.com/nowalab/nepali-word-embeddings/raw/master/results.jpg)
+
+## Acknowledgements
+We would like acknowledge Mr. Ganesh Pandey
+for his valuable contribution in providing the hardware setup for our experiments. Similarly, we
+thank Ms. Samiksha Bhattarai and Dr. Diwa
+Koirala for their continued support and encouragement.
+
+#
 June 7, 2021: 
 We are uploading models at the moment. Once it is completed, we will update this with the links for the 25 Word Embeddings for Nepali.  
 
+#
 January, 2021:
 Our paper is currently in review. This repository will contain 25 Word Embeddings for Nepali. We will publish the models soon.
