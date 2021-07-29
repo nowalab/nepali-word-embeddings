@@ -1,5 +1,5 @@
 # NPVec1: Word Embeddings for Nepali - Construction and Evaluation
-July 29, 2921
+July 29, 2021
 
 ## Introduction
 We present NPVec1, which consists of 25 state-of-art Word Embeddings for Nepali that we have derived from a large corpus using GloVe, Word2Vec, fastText, and BERT. These models are trained using 279 million word tokens and are the largest Embeddings ever trained for Nepali language. 
